@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="marioGame.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="marioGame.js"></script>
+	<script src="marioIntro.js"></script>
+	<title>마리오 벽돌깨기</title>
+</head>
+<body>
+
+	<div id="main">
+		<img id="bgIMG" src="images/background.png">
+		<img id="mainback" src="images/lobby/back1.png">
+
+		<!-- 로비 -->
+		<div class="intro">
+			<img src="images/lobby/team.png" id="teamIMG" class="lobby">
+			<img src="images/lobby/title.png" id="titleIMG" class="lobby">
+			<img src="images/lobby/start.png" id="startIMG" class="lobby menubutton">
+			<img src="images/lobby/store.png" id="storeIMG" class="lobby menubutton">
+			<img src="images/lobby/setting.png" id="settingIMG" class="lobby menubutton">
+			<img src="images/lobby/information.png" id="informationIMG" class="lobby menubutton">
+
+			<!-- stage -->
+			<img src="images/lobby/stage1.png" id="stage1IMG" class="stage">
+			<img src="images/lobby/stage2.png" id="stage2IMG" class="stage">
+			<img src="images/lobby/stage3.png" id="stage3IMG" class="stage">
+			<img src="images/lobby/stage4.png" id="stage4IMG" class="stage">
+			<img src="images/lobby/stage5.png" id="stage5IMG" class="stage">
+			<img src="images/lobby/back.png" id="stageback" class="stage">
+			
+		</div>
+
+		<!-- 조작법 -->
+		<div class="instructionpage">
+			<img src="images/mainshow.png" width="70" height="70" id="mainshow2">
+			<img src="images/marioshow.png" width="190" height="210" id="marioshow">
+			<img src="images/instructionheader.png" width="600" height="60" id="instructionheader">
+			<div><img  id="instructionalbum" width="600" height="470"></div>
+			<img src="images/preview.png" height="50" width="50" id="nextbutton">
+		</div>
+
+		<!-- 환경설정 -->
+		<div class="setting">
+			<div class="settingbox">
+				<img src="images/mainshow.png" width="70" height="70" id="mainshowing">
+				<img src="images/BGIbutton.png" width="180" height="120" id="BGIbutton">
+				<img src="images/BGIbutton1.png" width="120" height="80" id="BGIbutton1">
+				<img src="images/BGIbutton2.png" width="120" height="80" id="BGIbutton2">
+				<img src="images/BGIbutton3.png" width="120" height="80" id="BGIbutton3">
+				<img src="images/chracbutton.png" width="180" height="120" id="chracbutton">
+				<img src="images/mario.png" width="100" height="125" id="mario">
+				<img src="images/negative_chara.png" width="100" height="125" id="luigi">
+				<img src="images/chracbutton1.png" width="60" height="40" id="chracbutton1">
+				<img src="images/chracbutton2.png" width="60" height="40" id="chracbutton2">
+			</div>
+		</div>
+
+		<!-- 상점 -->
+		<div class="shop">
+			<img src="images/mainshow.png" width="70" height="70" id="mainshow1">
+
+			<img class="item-img" src="images/itembar.png" width="80" height="80" id="itembar">
+			<p class="item-explain" id="itembar-explain">바의 길이를 증가시킨다(코인 : 500)</p>
+			<img class="shop-button" src="images/buybutton.png" width="120" height="80" id="itembar-buy">
+
+			<img class="item-img" src="images/ballspeed.png" width="80" height="80" id="ballspeed">
+			<p class="item-explain" id="ballspeed-explain">공 속도를 감소시킨다(코인 : 500)</p>
+			<img class="shop-button" src="images/buybutton.png" width="120" height="80" id="ballspeed-buy">
+
+			<img class="item-img" src="images/lifeitem.png" width="80" height="80" id="lifeitem">
+			<p class="item-explain" id="lifeitem-explain">목숨을 1개 증가시킨다(코인 : 500)</p>
+			<img class="shop-button" src="images/buybutton.png" width="120" height="80" id="lifeitem-buy">
+
+			<img class="item-img" src="images/ball1.png" width="80" height="80" id="ballimg">
+			<select name="ballimg-explain" id="ballimg-explain">
+				<option value="images/ball1.png">초록색</option>
+				<option value="images/ball2.png">파란색</option>
+				<option value="images/ball3.png">빨간색</option>
+				<option value="images/ball4.png">주황색</option>
+				<option value="images/ball5.png">노란색</option>
+				<option value="images/ball6.png">남색</option>
+				<option value="images/ball7.png">보라색</option>
+				<option value="images/ball8.png">굼바</option>
+				<option value="images/ball9.png">멍멍이</option>
+				<option value="images/ball10.png">요시 알</option>
+			
+			</select>
+			<img class="shop-button" src="images/applybutton.png" width="120" height="80" id="ballimg-apply">
+		</div>
+		
+		<!-- 1스테이지 들어갔을 때 -->
+		<div id="enterstage1" width="150" height="100" background-color="black">
+			<img src="images/stageintro/mario.png" id="stage1_marioIMG">
+			<img src="images/stageintro/skip.png" id="stage1_skip" class="skip">
+			<div id="textbox">
+				<div class="typing-txt 1"> 
+					<ul>
+						<li>흉악한 쿠파를 물리치기 위해 여행을 나선 <p id="stage1_textmario">마리오</p>는</li>
+						<li>첫 번째 난관을 겪게된다.</li>
+						<li>초원에 있는 나무를 모조리 부숴버리자!</li>
+					</ul>
+				</div> 
+				<div class="typing 1">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div> 
+
+			</div>
+		</div>
+		<!-- 2스테이지 들어갔을 때 -->
+		<div id="enterstage2" width="150" height="100" background-color="black">
+			<img src="images/stageintro/mario.png" id="stage2_marioIMG">
+			<img src="images/stageintro/skip.png" id="stage2_skip" class="skip">
+			<div id="textbox">
+				<div class="typing-txt 2"> 
+					<ul>
+						<li>초원의 나무를 모조리 부순 <p id="stage2_textmario">마리오</p>는</li>
+						<li>사막을 지나가게 된다.</li>
+						<li>타는 듯한 갈증을 이겨내고 모래벽을 다 부숴보자.</li>
+					</ul>
+				</div> 
+				<div class="typing 2">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div> 
+
+			</div>
+		</div>
+		<!-- 3스테이지 들어갔을 때 -->
+		<div id="enterstage3" width="150" height="100" background-color="black">
+			<img src="images/stageintro/mario.png" id="stage3_marioIMG">
+			<img src="images/stageintro/skip.png" id="stage3_skip" class="skip">
+			<div id="textbox">
+				<div class="typing-txt 3"> 
+					<ul>
+						<li>끝이 보이지 않는 바다에 도착한 <p id="stage3_textmario">마리오</p>는</li>
+						<li>쿠파성을 가기 위해서 얼음을 뚫고 가야한다.</li>
+						<li>얼음을 파괴해보자!</li>
+					</ul>
+				</div> 
+				<div class="typing 3">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div> 
+
+			</div>
+		</div>
+		<!-- 4스테이지 들어갔을 때 -->
+		<div id="enterstage4" width="150" height="100" background-color="black">
+			<img src="images/stageintro/mario.png" id="stage4_marioIMG">
+			<img src="images/stageintro/skip.png" id="stage4_skip" class="skip">
+			<div id="textbox">
+				<div class="typing-txt 4"> 
+					<ul>
+						<li>쿠파성에 들어가기 전 마지막 장소인 광활한 설원에 도착한 <p id="stage4_textmario">마리오</p>는</li>
+						<li>거대한 눈으로 만들어진 벽을 마주하게 된다.</li>
+						<li>얼음을 다 부수고 쿠파성에 들어가자!</li>
+					</ul>
+				</div> 
+				<div class="typing 4">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div> 
+
+			</div>
+		</div>
+		<!-- 5스테이지 들어갔을 때 -->
+		<div id="enterstage5" width="150" height="100" background-color="black">
+			<img src="images/stageintro/mario.png" id="stage5_marioIMG">
+			<img src="images/stageintro/skip.png" id="stage5_skip" class="skip">
+			<div id="textbox">
+				<div class="typing-txt 5"> 
+					<ul>
+						<li>마침내 쿠파의 성에 도착한 <p id="stage5_textmario">마리오</p>는</li>
+						<li>쿠파 성 내의 벽들을 모조리 부수고</li>
+						<li>쿠파를 만나야 한다.</li>
+					</ul>
+				</div> 
+				<div class="typing 5">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div> 
+
+			</div>
+		</div>
+
+		<!-- 체력, 코인 사이드 바 -->
+		<p id="score">0</p>
+	    <img src="images/life.png" width="40" height="40" class="life"/> <p id="life">0</p>
+	    <img src="images/coin.png" width="40" height="40" class="coin"/> <p id="coin">100</p>
+		<canvas id="canvas" width="990" height="600"></canvas>
+		<div class="ending">
+			<div class="screen">
+				<div id="endingBox"><img src="images/lobby/endingcredits.png" id="endingIMG"></div>
+			</div>
+		</div>
+		<p id="announce"></p>
+		<p id="debuff"></p>
+		<div id="togglesound"></div>
+	</div>
+	
+
+
+</body>
+</html>
+
